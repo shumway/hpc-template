@@ -1,4 +1,4 @@
-#add_subdirectory(util)
+add_subdirectory(cxx11)
 
 set(SRC_DIR ${PI_QMC_SOURCE_DIR}/src)
 set(TEST_DIR ${PI_QMC_SOURCE_DIR}/test/unit)
