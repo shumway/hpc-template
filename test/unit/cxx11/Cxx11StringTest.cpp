@@ -26,7 +26,8 @@ TEST_F(Cxx11StringTest, testRawString)  {
 
 TEST_F(Cxx11StringTest, testUTF8String) {
     std::string string = u8"omega is \u03C9";
-    EXPECT_EQ(5 + 1 + 2 + 1 + 2, string.length());
+    size_t expect = 5 + 1 + 2 + 1 + 2;
+    EXPECT_EQ(expect, string.length());
 }
 
 }
