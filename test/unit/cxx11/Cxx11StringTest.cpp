@@ -24,5 +24,9 @@ TEST_F(Cxx11StringTest, testRawString)  {
     EXPECT_EQ(std::string("string\\no\\newlines!"), string);
 }
 
+TEST_F(Cxx11StringTest, testUTF8String) {
+    std::string string = u8"omega is \u03C9";
+    EXPECT_EQ(5 + 1 + 2 + 1 + 2, string.length());
+}
 
 }
