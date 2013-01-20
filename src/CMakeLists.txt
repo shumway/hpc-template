@@ -1,6 +1,6 @@
 add_subdirectory(cuda-util)
 
-add_executable(my-app main.cpp)
+add_executable(my-app main.cpp Application.cpp)
 
 target_link_libraries(my-app cuda-util)
 
