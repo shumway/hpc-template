@@ -1,13 +1,66 @@
-# Compiled Object files
+# Compiled Files
 *.slo
 *.lo
 *.o
-
-# Compiled Dynamic libraries
 *.so
 *.dylib
-
-# Compiled Static libraries
+*.dll
+*.exe
 *.lai
 *.la
 *.a
+*.pyc
+
+# Compressed files
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Build and configure files
+*.dir
+*.cmake
+progress.marks
+Makefile
+CMakeFiles/**/*
+/**/Makefile
+/**/CMakeFiles
+CMakeCache.txt
+/config.h
+/bin/**/*
+bin
+CMakeFiles
+/testbin/**/*
+testbin
+/config.h
+/.project
+/.cproject
+html
+latex
+lib
+Doxyfile
+
+# Logs and databases
+*.log
+*.sql
+*.sqlite
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+.*.swp
+_*
+
+# my-app output files
+*.dat
+*.out
