@@ -17,8 +17,8 @@ protected:
     std::string to_string(std::list<int>& list) {
         std::stringstream stream;
         stream << "{ ";
-        for (auto item = list.begin(); item != list.end(); ++item) {
-            stream << (*item) << " ";
+        for (auto &item : list) {
+            stream << item << " ";
         }
         stream << "}";
         return stream.str();
@@ -31,6 +31,5 @@ TEST_F(Cxx11InitializerTest, testList)  {
     ASSERT_EQ(size_t(8), mylist.size())
         << "for list " << to_string(mylist);
 }
-
 
 }
