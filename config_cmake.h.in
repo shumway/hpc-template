@@ -1,0 +1,9 @@
+#define NDIM 3
+
+#define PACKAGE_NAME "my-app"
+#define PACKAGE_STRING "my-app 1.0.0"
+#define PACKAGE_VERSION "1.0.0"
+
+#define HAVE_BLAS 1
+
+#cmakedefine HAVE_GETOPT_H 1
