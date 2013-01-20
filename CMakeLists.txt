@@ -3,7 +3,11 @@ cmake_minimum_required (VERSION 2.6)
 project (MY_APP)
 set (MY_APP_VERSION_MAJOR 0)
 set (MY_APP_VERSION_MINOR 1)
+
 enable_language(CXX)
+if(UNIX)
+    SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -std=c++0x")
+endif()
 
 find_library(LAPACK_LIB
 NAMES
