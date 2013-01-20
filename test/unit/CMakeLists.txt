@@ -1,4 +1,5 @@
 add_subdirectory(cxx11)
+add_subdirectory(cuda-util)
 
 set(SRC_DIR ${PI_QMC_SOURCE_DIR}/src)
 set(TEST_DIR ${PI_QMC_SOURCE_DIR}/test/unit)
@@ -10,7 +11,7 @@ add_executable(unittest_my_app EXCLUDE_FROM_ALL
     ${sources}
 )
 
-target_link_libraries(unittest_my_app)
+target_link_libraries(unittest_my_app cuda-util)
 
 target_link_libraries(unittest_my_app gtest -lpthread)
 target_link_libraries(unittest_my_app ${BLAS_LIB})

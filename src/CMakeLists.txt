@@ -1,8 +1,8 @@
-#add_subdirectory(util)
+add_subdirectory(cuda-util)
 
 add_executable(my-app main.cpp)
 
-target_link_libraries(my-app)
+target_link_libraries(my-app cuda-util)
 
 target_link_libraries(my-app ${BLAS_LIB})
 target_link_libraries(my-app ${LAPACK_LIB})

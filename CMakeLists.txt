@@ -10,6 +10,16 @@ if(UNIX)
     
 endif()
 
+find_package(CUDA  REQUIRED)
+if (CUDA_FOUND)
+    message("CUDA found")
+    message("CUDA include directories:" ${CUDA_INCLUDE_DIRS})
+    include_directories(SYSTEM ${CUDA_INCLUDE_DIRS})
+else()
+    message("CUDA not found")
+endif()
+
+
 find_library(LAPACK_LIB
 NAMES
     lapack
