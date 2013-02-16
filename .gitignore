@@ -52,15 +52,18 @@ Doxyfile
 # OS generated files
 .DS_Store
 .DS_Store?
-._*
 .Spotlight-V100
 .Trashes
+._*
 Icon?
 ehthumbs.db
 Thumbs.db
 .*.swp
-_*
 
 # my-app output files
 *.dat
 *.out
+
+# Sphinx files
+_*
+build
