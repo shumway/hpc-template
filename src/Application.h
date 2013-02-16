@@ -15,5 +15,4 @@ private:
 
     void setupCUDAEnvironment();
 };
-
 #endif

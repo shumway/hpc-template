@@ -1,6 +1,6 @@
 #include "Application.h"
 #include "cuda-util/CUDAEnvironment.h"
-#include <iostream>
+#include "cuda-util/CUDAEnvironmentWriter.h"
 
 Application::Application()
     :   cudaEnvironment(0) {
@@ -16,7 +16,6 @@ void Application::run() {
 
 void Application::setupCUDAEnvironment() {
     cudaEnvironment = new CUDAEnvironment();
-    std::cout << "\nCUDA Summary\n" << std::endl;
-    std::cout << "Number of Devices: " << cudaEnvironment->getDeviceCount()
-            << std::endl;
+    CUDAEnvironmentWriter writer(cudaEnvironment);
+    writer.writeEnvironment();
 }

@@ -2,7 +2,8 @@
 #include <cuda_runtime.h>
 
 CUDAEnvironment::CUDAEnvironment() {
-    cudaGetDeviceCount(&deviceCount);}
+    cudaGetDeviceCount(&deviceCount);
+}
 
 CUDAEnvironment::~CUDAEnvironment() {
 }

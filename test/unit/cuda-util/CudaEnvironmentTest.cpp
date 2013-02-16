@@ -16,7 +16,7 @@ protected:
     CUDAEnvironment* environment;
 };
 
-TEST_F(CudaEnvironmentTest, testFloat)  {
+TEST_F(CudaEnvironmentTest, testDeviceCount)  {
     int deviceCount = environment->getDeviceCount();
     ASSERT_EQ(1, deviceCount);
 }
