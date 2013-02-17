@@ -21,5 +21,36 @@ std::string CUDAEnvironment::getDeviceName(int index) const {
     return std::string(properties[index].name);
 }
 
+int CUDAEnvironment::getMajor(int index) const {
+    return properties[index].major;
+}
+
+int CUDAEnvironment::getMinor(int index) const {
+    return properties[index].major;
+}
+
+int CUDAEnvironment::getClockRateInKHz(int index) const {
+    return properties[index].clockRate;
+}
+
+int CUDAEnvironment::getMultiprocessorCount(int index) const {
+    return properties[index].multiProcessorCount;
+}
+
+int CUDAEnvironment::getSharedMemorySize(int index) const {
+    return properties[index].sharedMemPerBlock;
+}
+
+int CUDAEnvironment::getRegisterCount(int index) const {
+    return properties[index].regsPerBlock;
+}
+
+int CUDAEnvironment::getWarpSize(int index) const {
+    return properties[index].warpSize;
+}
+
+
+
+
 
 
