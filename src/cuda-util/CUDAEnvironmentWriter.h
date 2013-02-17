@@ -16,8 +16,10 @@ private:
     const CUDAEnvironment* environment;
     std::ostream* outStream;
 
+    void writeDeviceInformation(int i);
     void writeHeader();
     void writeDeviceCount();
+    void writeInfoForEachDevice();
     void writeFooter();
 };
 
