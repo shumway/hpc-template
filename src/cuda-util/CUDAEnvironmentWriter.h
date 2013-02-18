@@ -2,6 +2,7 @@
 #define CUDAENVIRONMENTWRITER_H_
 
 class CUDAEnvironment;
+class CUDAProperties;
 #include <ostream>
 
 class CUDAEnvironmentWriter {
@@ -16,7 +17,7 @@ private:
     const CUDAEnvironment* environment;
     std::ostream* outStream;
 
-    void writeDeviceInformation(int i);
+    void writeDeviceInformation(const CUDAProperties *properties);
     void writeHeader();
     void writeDeviceCount();
     void writeInfoForEachDevice();

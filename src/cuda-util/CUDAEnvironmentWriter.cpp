@@ -1,5 +1,6 @@
 #include "CUDAEnvironmentWriter.h"
 #include "CUDAEnvironment.h"
+#include "CUDAProperties.h"
 #include <fstream>
 
 CUDAEnvironmentWriter::CUDAEnvironmentWriter(
@@ -40,32 +41,32 @@ void CUDAEnvironmentWriter::writeDeviceCount()  {
     *outStream << std::endl;
 }
 
-void CUDAEnvironmentWriter::writeDeviceInformation(int index) {
-    *outStream << "CUDA Device " << index + 1 << " of "
+void CUDAEnvironmentWriter::writeDeviceInformation(
+        const CUDAProperties* properties) {
+    *outStream << "CUDA Device " << properties->getIndex() + 1 << " of "
             << environment->getDeviceCount() << "\n" << std::endl;
-    *outStream << "  Name: " << environment->getDeviceName(index) << std::endl;
-    *outStream << "  Compute capability: " << environment->getMajor(index)
-            << "." << environment->getMinor(index) << std::endl;
-    *outStream << "  Clock rate: " << environment->getClockRateInKHz(index) * 1e-6
+    *outStream << "  Name: " << properties->getDeviceName() << std::endl;
+    *outStream << "  Compute capability: " << properties->getMajor()
+            << "." << properties->getMinor() << std::endl;
+    *outStream << "  Clock rate: " << properties->getClockRateInKHz() * 1e-6
             << " GHz" << std::endl;
     *outStream << "  Number of multiprocessors: "
-            << environment->getMultiprocessorCount(index) << std::endl;
+            << properties->getMultiprocessorCount() << std::endl;
     *outStream << "  Shared memory per block: "
-            << environment->getSharedMemorySize(index) << std::endl;
+            << properties->getSharedMemorySize() << std::endl;
     *outStream << "  Registers per block: "
-            << environment->getRegisterCount(index) << std::endl;
-    *outStream << "  Threads per warp: " << environment->getWarpSize(index)
+            << properties->getRegisterCount() << std::endl;
+    *outStream << "  Threads per warp: " << properties->getWarpSize()
             << std::endl;
     *outStream << std::endl;
 }
 
 void CUDAEnvironmentWriter::writeInfoForEachDevice() {
-    for (int i = 0; i < environment->getDeviceCount(); ++i) {
-        writeDeviceInformation(i);
+    for (auto properties : *environment) {
+        writeDeviceInformation(properties);
     }
 }
 
 void CUDAEnvironmentWriter::writeFooter() {
 }
-
 

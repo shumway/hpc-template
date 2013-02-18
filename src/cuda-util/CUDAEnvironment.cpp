@@ -1,56 +1,29 @@
 #include "cuda-util/CUDAEnvironment.h"
 #include <cuda_runtime.h>
+#include "CUDAProperties.h"
 
 CUDAEnvironment::CUDAEnvironment() {
     cudaGetDeviceCount(&deviceCount);
-    properties = new cudaDeviceProp[deviceCount];
+    propertiesList = new CUDAProperties* [deviceCount];
     for (int i = 0; i < deviceCount; ++i) {
-        cudaGetDeviceProperties(&properties[i], i);
+        propertiesList[i] = new CUDAProperties(i);
     }
 }
 
 CUDAEnvironment::~CUDAEnvironment() {
-    delete [] properties;
+    for (auto properties : *this) delete properties;
+    delete [] propertiesList;
 }
 
 int CUDAEnvironment::getDeviceCount() const {
     return deviceCount;
 }
 
-std::string CUDAEnvironment::getDeviceName(int index) const {
-    return std::string(properties[index].name);
+CUDAProperties** CUDAEnvironment::begin() const {
+    return propertiesList;
 }
 
-int CUDAEnvironment::getMajor(int index) const {
-    return properties[index].major;
+CUDAProperties** CUDAEnvironment::end() const {
+    return propertiesList + deviceCount;
 }
-
-int CUDAEnvironment::getMinor(int index) const {
-    return properties[index].major;
-}
-
-int CUDAEnvironment::getClockRateInKHz(int index) const {
-    return properties[index].clockRate;
-}
-
-int CUDAEnvironment::getMultiprocessorCount(int index) const {
-    return properties[index].multiProcessorCount;
-}
-
-int CUDAEnvironment::getSharedMemorySize(int index) const {
-    return properties[index].sharedMemPerBlock;
-}
-
-int CUDAEnvironment::getRegisterCount(int index) const {
-    return properties[index].regsPerBlock;
-}
-
-int CUDAEnvironment::getWarpSize(int index) const {
-    return properties[index].warpSize;
-}
-
-
-
-
-
 
